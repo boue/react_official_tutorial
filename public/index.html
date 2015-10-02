@@ -32,6 +32,10 @@
         //Passing data from child comp back to parent. Render method passes the below callback into child, binding
         //it into child's onCommentSubmit event. When this event is triggered the callback gets invoked 
         handleCommentSubmit: function(comment){
+          //optimization to make it faster
+          var comments = this.state.data;
+          var newComments = comments.concat([comment]);
+          this.setState({data: newComments});
           //submits data to the server and refreshes the list
           $.ajax({
             url: this.props.url,
