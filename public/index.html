@@ -12,20 +12,6 @@
   <body>
     <div id="content"></div>
     <script type="text/babel">
-      var CommentBox = React.createClass({
-        render: function(){
-          return(
-            <div className="CommentBox">
-              Hello, world! I am a CommentBox.
-            </div>
-          );
-        }
-      });
-
-      React.render(
-        <CommentBox />,
-        document.getElementById('content')
-      );
 
       var CommentList = React.createClass({
         render: function(){
@@ -46,6 +32,23 @@
           );
         }
       });
+
+      var CommentBox = React.createClass({
+        render: function(){
+          return(
+            <div className="commentBox">
+              <h1>Comments</h1>
+              <CommentList />
+              <CommentForm />
+            </div>
+          );
+        }
+      });
+
+      React.render(
+        <CommentBox />,
+        document.getElementById('content')
+      );
 
     </script>
   </body>
